@@ -1,0 +1,16 @@
+#
+# Smoke test file for btfilechecker
+#
+#
+BT:	"main.go"		btfilechecker/main.go
+BT:	"checker.go"		btfilechecker/checker.go
+BT:	"parser.go"		btfilechecker/parser.go
+BT:     "fileutil.go"           btfilechecker/fileutil.go
+BT:     "constants.go"          btfilechecker/constants.go
+#
+BT:	"checker_test.go"	btfilechecker/checker_test.go
+BT:	"parser_test.go"	btfilechecker/parser_test.go
+BT:	"fileutil_test.go"	btfilechecker/fileutil_test.go
+#
+BT:	"doesnotexist.go"	btfilechecker/doesnotexist.go
+#
