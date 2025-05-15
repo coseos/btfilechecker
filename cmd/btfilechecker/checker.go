@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "path/filepath"
+    "strings"
 )
 
 // BTFileChecker checks for file existence.
@@ -17,7 +18,8 @@ func NewBTFileChecker(basePath string) *BTFileChecker {
 
 // Check verifies if the file exists in the base path.
 func (c *BTFileChecker) Check(entry BTFileEntry) error {
-    fullPath := filepath.Join(c.basePath, entry.Filename)
+    filename := strings.ReplaceAll(entry.Filename, "\\", string(filepath.Separator))
+    fullPath := filepath.Join(c.basePath, filename)
     if !FileExists(fullPath) {
         return fmt.Errorf("file not found: %s", fullPath)
     }

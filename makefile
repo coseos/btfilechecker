@@ -1,8 +1,9 @@
 # Makefile
 
-NAME = btfilechecker
-BINARY = build/$(NAME)
-SRC = ./cmd/$(NAME)
+NAME := btfilechecker
+BINARY := build/$(NAME)
+SRC := ./cmd/$(NAME)
+VERSION := $(shell cat version)
 
 .PHONY: build clean
 
@@ -15,6 +16,9 @@ test:
 
 smoke:
 	build/$(NAME) ./cmd/ ./data/$(NAME).lst
+
+pack:
+	zip -j build/$(NAME)_$(VERSION).zip build/$(NAME)
 
 clean:
 	rm -f $(BINARY)
